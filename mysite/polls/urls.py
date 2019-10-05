@@ -1,7 +1,7 @@
 from django.urls import path
 
-from . import views
+from .views import SampleTemplateView
 
 urlpatterns = [
-    path(),
+    path(r'^sample$', SampleTemplateView.as_view()),
 ]
