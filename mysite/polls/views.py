@@ -4,3 +4,5 @@ from django.views.generic import TemplateView
 
 class SampleTemplateView(TemplateView):
     template_name = 'index.html'
+
+SampleTemplateView = SampleTemplateView.as_view()
