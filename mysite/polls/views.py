@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 from .models import Person
 from .forms import PersonForm
 from django.views.generic.edit import CreateView, UpdateView
-
+from django.shortcuts import get_object_or_404
 # Create your views here.
 
 class SampleTemplateView(TemplateView):
@@ -30,10 +30,9 @@ class MyCreateView(CreateView):  #CRUDのC
     fields = "__all__"
     success_url = "/polls/sample"
 
-class MyUpdateView(UpdateView):  
+class MyUpdateView(UpdateView):  #CRUDのU
     template_name = "polls/edit.html"
     model = Person
     fields = "__all__"
     success_url = "/polls/sample"
-    def post(self, request, *args, **kwargs):
-        return super().post(request, *args, **kwargs)
+    
