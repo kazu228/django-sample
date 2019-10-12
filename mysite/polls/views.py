@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 from .models import Person
 from .forms import PersonForm
 from django.views.generic.edit import CreateView, UpdateView
-from django.shortcuts import get_object_or_404
+
 # Create your views here.
 
 class SampleTemplateView(TemplateView):
