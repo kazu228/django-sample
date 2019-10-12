@@ -4,5 +4,5 @@ from .views import SampleTemplateView
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('sample', SampleTemplateView.as_view())
+    path('sample', SampleTemplateView.as_view(), name='index')
 ]

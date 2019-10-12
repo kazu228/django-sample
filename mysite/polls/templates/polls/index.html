@@ -5,6 +5,11 @@
 <body>
 <h1>Hello World</h1>
 <h2>レコードの取得内容</h2>
+<form action="{% url 'index' %}" method='post'>
+    {% csrf_token %}
+    {{ form }}
+    <tr><td></td><td><input type='submit' value='click'></td></tr>
+</form>
 {% for item in data %}
     <p>{{ item.name }}</p>
     <p>{{ item.age }}</p>
