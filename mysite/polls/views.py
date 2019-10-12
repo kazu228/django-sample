@@ -24,7 +24,7 @@ class SampleTemplateView(TemplateView):
         }
         return render(request, 'polls/index.html', params)
     
-class MyCreateView(CreateView):
+class MyCreateView(CreateView):  #CRUDのC
     template_name = "polls/create.html"
     model = Person
     fields = "__all__"
