@@ -8,7 +8,7 @@
         href="{% static 'hello/css/style.css' %}" />
 </head>
 <body>
-    <h1>{{title}}</h1>
+    <h1>レコードを追加するフォーム</h1>
     <table>
         <form action="{% url 'create' %}" method="post">
         {% csrf_token %}
