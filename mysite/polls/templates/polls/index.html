@@ -18,6 +18,7 @@
     <p>{{ item.mail }}</p>
     {% if item.gender == True %}男{% endif %}
     {% if item.gender == False %}女{% endif %}
+    <p><a href="{% url 'edit' item.id %}">Edit</a><p>
 {% endfor %}
 </body> 
 </html> 

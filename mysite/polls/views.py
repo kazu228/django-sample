@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import Person
 from .forms import PersonForm
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 
 # Create your views here.
 
@@ -26,6 +26,12 @@ class SampleTemplateView(TemplateView):
     
 class MyCreateView(CreateView):  #CRUDのC
     template_name = "polls/create.html"
+    model = Person
+    fields = "__all__"
+    success_url = "/polls/sample"
+
+class MyUpdateView(UpdateView):  #CRUDのU
+    template_name = "polls/edit.html"
     model = Person
     fields = "__all__"
     success_url = "/polls/sample"
