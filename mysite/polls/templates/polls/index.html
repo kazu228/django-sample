@@ -4,7 +4,13 @@
 </head>
 <body>
 <h1>Hello World</h1>
-<p>{{ data }}</p>
+<h2>レコードの取得内容</h2>
+{% for item in data %}
+    <p>{{ item.name }}</p>
+    <p>{{ item.age }}</p>
+    <p>{{ item.birthday }}</p>
+    <p>{{ item.mail }}</p>
+{% endfor %}
 こんにちはHTML
 </body> 
 </html> 
