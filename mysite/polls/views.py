@@ -30,8 +30,10 @@ class MyCreateView(CreateView):  #CRUDのC
     fields = "__all__"
     success_url = "/polls/sample"
 
-class MyUpdateView(UpdateView):  #CRUDのU
+class MyUpdateView(UpdateView):  
     template_name = "polls/edit.html"
     model = Person
     fields = "__all__"
     success_url = "/polls/sample"
+    def post(self, request, *args, **kwargs):
+        return super().post(request, *args, **kwargs)
