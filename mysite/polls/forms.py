@@ -3,6 +3,10 @@ from django import forms
 class PersonForm(forms.Form):
     id  = forms.IntegerField(label='ID')
 
+class FindForm(forms.Form):
+    find = forms.CharField(label='Find', required=False)
+
+    
 class PersonmodelForm(forms.Form):
     name = forms.CharField(label="名前")
     age = forms.IntegerField(label="年齢")

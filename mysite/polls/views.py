@@ -4,8 +4,23 @@ from .models import Person
 from .forms import PersonForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
+from .forms import FindForm
 
 # Create your views here.
+
+def find(request):
+    if (request.method == 'POST'):
+        form = FindForm(request.POST)
+        str = request.POST['find']
+        data = Person.objects.filter(name__contains=str)
+    else:
+        form = FindForm()
+        data = Person.objects.all()
+    params = {
+        'data': data,
+        'form': form
+    }
+    return render(request, 'polls/find.html', params)
 
 class SampleTemplateView(TemplateView):
     template_name = "polls/index.html"
@@ -13,17 +28,17 @@ class SampleTemplateView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["data"] = Person.objects.all()
-        context["form"] = PersonForm()
+        # context["form"] = PersonForm()
         return context
     
-    def post(self, request):
-        num = request.POST['id']
-        item = Person.objects.get(id=num)
-        params = {
-            'data': [item],
-            'form': PersonForm(request.POST)
-        }
-        return render(request, 'polls/index.html', params)
+    # def post(self, request):
+    #     num = request.POST['id']
+    #     item = Person.objects.get(id=num)
+    #     params = {
+    #         'data': [item],
+    #         'form': PersonForm(request.POST)
+    #     }
+    #     return render(request, 'polls/index.html', params)
     
 class MyCreateView(CreateView):  #CRUDのC
     template_name = "polls/create.html"
