@@ -12,7 +12,10 @@ def find(request):
     if (request.method == 'POST'):
         form = FindForm(request.POST)
         str = request.POST['find']
-        data = Person.objects.filter(name__contains=str)
+        sql = 'select * from polls_person'
+        if (str != ''):
+            sql += ' where ' + str
+        data = Person.objects.raw(sql)
     else:
         form = FindForm()
         data = Person.objects.all()
