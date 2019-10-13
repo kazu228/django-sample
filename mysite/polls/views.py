@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import Person
 from .forms import PersonForm
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse
 
 # Create your views here.
 
@@ -35,4 +36,9 @@ class MyUpdateView(UpdateView):  #CRUDのU
     model = Person
     fields = "__all__"
     success_url = "/polls/sample"
+    
+class MyDeleteView(DeleteView):  #CRUDのD
+    template_name = "polls/delete.html"
+    model = Person
+    success_url = '/polls/sample'
     

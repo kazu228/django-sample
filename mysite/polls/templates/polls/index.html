@@ -19,6 +19,7 @@
     {% if item.gender == True %}男{% endif %}
     {% if item.gender == False %}女{% endif %}
     <p><a href="{% url 'edit' item.id %}">レコードを編集する</a><p>
+    <p><a href="{% url 'delete' item.id %}">レコードを削除する</a><p>
 {% endfor %}
 </body> 
 </html> 
