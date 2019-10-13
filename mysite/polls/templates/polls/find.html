@@ -21,6 +21,7 @@
     <table>
         <tr>
             <th>id</th>
+            <th>gender</th>
             <th>name</th>
             <th>age</th>
             <th>mail</th>
@@ -28,8 +29,13 @@
         </tr>
     {% for item in data %}
         <tr>
-            <th>{{ item.id }}</th>
-            <td>{{item.gender}}</td>
+            <td>{{ item.id }}</td>
+            {% if item.gender == True %}
+            <td>男</td>
+            {% endif %}
+            {% if item.gender == False %}
+            <td>女</td>
+            {% endif %}
             <td>{{item.name}}</td>
             <td>{{item.age}}</td>
             <td>{{item.mail}}</td>
